@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://7b2nabx7txpx"]
+
+[ext_resource type="Script" uid="uid://bxbyejm8emmoj" path="res://scripts/pause_menu.gd" id="1_kukqi"]
+[ext_resource type="Texture2D" uid="uid://drxt00o8pk2cj" path="res://assets/resume.png" id="2_5d2l8"]
+[ext_resource type="Texture2D" uid="uid://cu2avv54veyn5" path="res://assets/quit.png" id="3_7l7mv"]
+[ext_resource type="Texture2D" uid="uid://b6ewa6q1vkwmx" path="res://assets/pause.png" id="4_5d2l8"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kukqi")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.6, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "RESUME"
+
+[node name="ResumeSprite" type="Sprite2D" parent="MarginContainer/VBoxContainer/ResumeButton"]
+texture_filter = 1
+position = Vector2(36.25, 15)
+scale = Vector2(2.11806, 3.38889)
+texture = ExtResource("2_5d2l8")
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "QUIT"
+
+[node name="Sprite2D3" type="Sprite2D" parent="MarginContainer/VBoxContainer/QuitButton"]
+texture_filter = 1
+position = Vector2(36.25, 15)
+scale = Vector2(2.11806, 3.38889)
+texture = ExtResource("3_7l7mv")
+
+[node name="Pause Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(58, -30)
+scale = Vector2(3.38889, 3.38889)
+texture = ExtResource("4_5d2l8")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

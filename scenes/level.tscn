@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://cm06lhrxf80f3"]
+
+[ext_resource type="PackedScene" uid="uid://cvpckdqfi4ej6" path="res://scenes/paddle.tscn" id="1_2q6dc"]
+[ext_resource type="Script" uid="uid://i8a5j3imqkf0" path="res://scripts/level.gd" id="1_w8frs"]
+[ext_resource type="PackedScene" uid="uid://cdjt5wbefmumm" path="res://scenes/ball.tscn" id="3_w8frs"]
+[ext_resource type="Texture2D" uid="uid://clwhbldvh5q5c" path="res://assets/background.png" id="4_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://7b2nabx7txpx" path="res://scenes/pause_menu.tscn" id="5_ppgk2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppgk2"]
+size = Vector2(10, 658)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2r41h"]
+size = Vector2(10, 658)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klq6b"]
+size = Vector2(1172, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mx8sn"]
+size = Vector2(1150, 10)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_w8frs")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="Paddle" parent="." instance=ExtResource("1_2q6dc")]
+position = Vector2(576, 600)
+scale = Vector2(2, 2)
+
+[node name="Ball" parent="." instance=ExtResource("3_w8frs")]
+position = Vector2(576, 440)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Left Wall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-5, 319)
+shape = SubResource("RectangleShape2D_ppgk2")
+
+[node name="Right Wall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1157, 319)
+shape = SubResource("RectangleShape2D_2r41h")
+
+[node name="Top Wall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(576, -5)
+shape = SubResource("RectangleShape2D_klq6b")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(583, 430)
+texture = ExtResource("4_mx8sn")
+
+[node name="Death Plane" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Plane"]
+position = Vector2(576, 653)
+shape = SubResource("RectangleShape2D_mx8sn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_ppgk2")]
+offset_left = 460.0
+offset_top = 324.0
+offset_right = 460.0
+offset_bottom = 324.0
+scale = Vector2(2, 2)
+
+[connection signal="body_entered" from="Death Plane" to="Ball" method="_on_death_plane_body_entered"]
