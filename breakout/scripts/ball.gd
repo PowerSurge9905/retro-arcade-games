@@ -36,6 +36,7 @@ func _physics_process(delta: float) -> void:
 
 # Reload the scene if the ball touches the bottom of the screen
 func gameOver():
+	GameManager.saveGame()
 	GameManager.score = 0
 	get_tree().reload_current_scene()
 
