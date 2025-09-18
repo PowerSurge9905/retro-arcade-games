@@ -1,0 +1,7 @@
+res://scenes/paddle.tscn
+res://scripts/game_manager.gd
+res://scenes/level.tscn
+res://scenes/game_manager.tscn
+res://scenes/brick.tscn
+res://scenes/ball.tscn
+res://scenes/pause_menu.tscn
