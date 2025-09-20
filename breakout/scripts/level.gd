@@ -7,7 +7,7 @@ extends Node2D
 # Sets the number of rows and columns of bricks,
 # as well as how far from the edge of the screen they should be (in pixels)
 var columns = 12
-var rows = 8
+var rows = Globals.rows
 var margin = 50
 
 # An array of colors for dynamically coloring the bricks in
@@ -31,6 +31,8 @@ func setupLevel():
 			var newBrick = brickObject.instantiate()
 			add_child(newBrick)
 			newBrick.position = Vector2(margin + (95 * c), margin - 25 + (30 * r))
+			
+			newBrick.brickRow = r
 			
 			# Gives each brick a color from colors[] depending on what the current row is
 			var sprite = newBrick.get_node('Sprite2D')

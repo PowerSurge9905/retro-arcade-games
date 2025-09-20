@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s27bscy5wk2l"
-path="res://.godot/imported/brick.png-2752dffcc7852625bd2ce25e2bde0c3a.ctex"
+uid="uid://cpeoqod7g77ac"
+path="res://.godot/imported/paddle_end.png-cf64890fb240b2662c5daf104ae953f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/brick.png"
-dest_files=["res://.godot/imported/brick.png-2752dffcc7852625bd2ce25e2bde0c3a.ctex"]
+source_file="res://assets/paddle_end.png"
+dest_files=["res://.godot/imported/paddle_end.png-cf64890fb240b2662c5daf104ae953f5.ctex"]
 
 [params]
 

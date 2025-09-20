@@ -21,18 +21,23 @@ func _physics_process(delta: float) -> void:
 		# Reverses the ball's direction upon collision
 		if collision:
 			velocity = velocity.bounce(collision.get_normal())
+			
+			# Makes sure the ball doesn't slow down too much along the vertical axis
+			if (velocity.y > 0 and velocity.y < speed/2):
+				velocity.y = 200
+			if (velocity.y <= 0 and velocity.y > speed/-2):
+				velocity.y = -200
+			
+			# Makes sure the ball doesn't slow down too much along th horizontal axis
+			if (velocity.x > 0 and velocity.x < speed/4):
+				velocity.x = speed
+			if (velocity.x <= 0 and velocity.x > speed/-4):
+				velocity.x = speed * -1
+				
 			# Check if the object the ball collided with has the 'hit' method
 			# Calls 'hit' if it does (see res://scripts/brick.gd)
 			if collision.get_collider().has_method("hit"):
 				collision.get_collider().hit()
-		
-		# Makes sure the ball doesn't slow down too much along the vertical axis
-		if (velocity.y > 0 and velocity.y < 100):
-			velocity.y = -200
-		
-		# Makes sure the ball doesn't slow down too much along th horizontal axis
-		if (velocity.x == 0):
-			velocity.x = -200
 
 # Reload the scene if the ball touches the bottom of the screen
 func gameOver():
