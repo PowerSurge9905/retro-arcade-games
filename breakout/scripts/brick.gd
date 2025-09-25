@@ -1,5 +1,5 @@
 extends RigidBody2D
-# This script controls whether a brick is deleted from the scene
+# This script controls brick breaking and brick particle spawning
 
 var brickRow = 0
 var colors = [

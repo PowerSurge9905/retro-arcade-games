@@ -1,6 +1,10 @@
 extends CharacterBody2D
 # This script controls the ball
 
+@onready var sound_bounce = $BounceSoundPlayer
+@onready var sound_break = $BreakSoundPlayer
+@onready var sound_game_over = $GameOverSoundPlayer
+
 # Sets the ball's speed, assigns it a Vector2 variable, and assigns the ball as active
 var speed = 200
 var dir = Vector2.DOWN
@@ -38,10 +42,15 @@ func _physics_process(delta: float) -> void:
 			# Calls 'hit' if it does (see res://scripts/brick.gd)
 			if collision.get_collider().has_method("hit"):
 				collision.get_collider().hit()
+				sound_break.play()
+			else:
+				sound_bounce.play()
 
 # Reload the scene if the ball touches the bottom of the screen
 func gameOver():
 	GameManager.saveGame()
+	sound_game_over.play()
+	await get_tree().create_timer(3).timeout
 	GameManager.score = 0
 	get_tree().reload_current_scene()
 

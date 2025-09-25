@@ -1,3 +1,3 @@
 extends Node
 
-var rows = 8
+var rows = 1
