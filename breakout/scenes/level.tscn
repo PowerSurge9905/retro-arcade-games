@@ -25,7 +25,7 @@ script = ExtResource("1_w8frs")
 position = Vector2(576, 324)
 
 [node name="Paddle" parent="." instance=ExtResource("1_2q6dc")]
-position = Vector2(576, 600)
+position = Vector2(576, 590)
 scale = Vector2(2, 2)
 
 [node name="Ball" parent="." instance=ExtResource("3_w8frs")]

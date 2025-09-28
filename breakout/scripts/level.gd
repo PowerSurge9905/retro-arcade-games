@@ -6,25 +6,19 @@ extends Node2D
 
 # Sets the number of rows and columns of bricks,
 # as well as how far from the edge of the screen they should be (in pixels)
-var columns = 12
-var rows = Globals.rows
+var columns = GameManager.columns
+var rows = GameManager.rows + GameManager.level - 1
 var margin = 50
-
-# An array of colors for dynamically coloring the bricks in
-var colors = [
-		Color(0, 1, 0, 1),
-		Color(1, 1, 0, 1),
-		Color(1, 0.5, 0, 1),
-		Color(1, 0, 0, 1)
-		]
 
 # Runs setupLevel() upon the game starting
 func _ready() -> void:
-	$CanvasLayer/PauseMenu.visible = false
+	$CanvasLayer/PauseMenu.visible = true
 	setupLevel()
 
 # Places the bricks in the level
 func setupLevel():
+	if rows > 8:
+		rows = 8
 	for r in rows:
 		for c in columns:
 			# Creates a new brick and places it using the current row (r) and column (c)
@@ -32,15 +26,17 @@ func setupLevel():
 			add_child(newBrick)
 			newBrick.position = Vector2(margin + (95 * c), margin - 25 + (30 * r))
 			
+			# Passes the current row to the newly created brick
+			# Used for particle color calculation
 			newBrick.brickRow = r
 			
 			# Gives each brick a color from colors[] depending on what the current row is
 			var sprite = newBrick.get_node('Sprite2D')
-			if r < rows * 0.25:
-				sprite.modulate = colors[0] #Green
-			elif r < rows * 0.5:
-				sprite.modulate = colors[1] #Yellow
-			elif r < rows * 0.75:
-				sprite.modulate = colors[2] #Orange
+			if r < 2:
+				sprite.modulate = GameManager.colors[0] #Green
+			elif r < 4:
+				sprite.modulate = GameManager.colors[1] #Yellow
+			elif r < 6:
+				sprite.modulate = GameManager.colors[2] #Orange
 			else:
-				sprite.modulate = colors[3] #Red
+				sprite.modulate = GameManager.colors[3] #Red

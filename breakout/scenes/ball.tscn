@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdjt5wbefmumm"]
+[gd_scene load_steps=9 format=3 uid="uid://cdjt5wbefmumm"]
 
 [ext_resource type="Script" uid="uid://cyc63naa3oeu0" path="res://scripts/ball.gd" id="1_gm0sj"]
 [ext_resource type="Texture2D" uid="uid://brklcuyriqpa1" path="res://assets/ball.png" id="2_k40n7"]
 [ext_resource type="AudioStream" uid="uid://5x053bdx7ygg" path="res://sounds/sound_bounce.wav" id="3_4dx81"]
 [ext_resource type="AudioStream" uid="uid://gjbwkh1u8fwn" path="res://sounds/sound_break.wav" id="4_eew57"]
 [ext_resource type="AudioStream" uid="uid://2xqlesnhpcgy" path="res://sounds/sound_game_over.wav" id="5_eew57"]
+[ext_resource type="AudioStream" uid="uid://br6tquddtimup" path="res://sounds/sound_life_lost.wav" id="6_jj7gd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7s4qf"]
 
@@ -37,6 +38,10 @@ stream = ExtResource("3_4dx81")
 
 [node name="BreakSoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_eew57")
+volume_db = -5.0
 
 [node name="GameOverSoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_eew57")
+
+[node name="LifeLostSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_jj7gd")

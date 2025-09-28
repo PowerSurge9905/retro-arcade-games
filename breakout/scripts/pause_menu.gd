@@ -1,23 +1,46 @@
 extends Control
 
-@onready var level = $"../../"
+# Hides the pause menu and countdown on start, then starts countdown
+func _ready() -> void:
+	$PauseContainer.visible = false
+	$CountdownContainer.visible = false
+	countdown()
 
 # Resumes play
 func resume():
-	self.visible = false
+	$PauseContainer.visible = false
 	get_tree().paused = false
 
 # Pauses play
 func pause():
-	get_tree().paused = true
-	self.visible = true
+	if GameManager.canPause:
+		get_tree().paused = true
+		$PauseContainer.visible = true
+
+# A countdown to the game starting
+# Gives the player a moment to analyze the game
+func countdown():
+	GameManager.canPause = false
+	$CountdownContainer.visible = true
+	$"CountdownContainer/Countdown Label".text = "READY?"
+	await get_tree().create_timer(2).timeout
+	$"CountdownContainer/Countdown Label".text = "3"
+	await get_tree().create_timer(0.5).timeout
+	$"CountdownContainer/Countdown Label".text = "2"
+	await get_tree().create_timer(0.5).timeout
+	$"CountdownContainer/Countdown Label".text = "1"
+	await get_tree().create_timer(0.5).timeout
+	$"CountdownContainer/Countdown Label".text = "GO!"
+	await get_tree().create_timer(1).timeout
+	$CountdownContainer.visible = false
+	GameManager.canPause = true
 
 # Checks for whether the game is currently paused and if the player presses ESCAPE
 # Pauses/Unpauses based on current pause state
-func testEsc():
-	if Input.is_action_just_pressed("pause") and !get_tree().paused:
+func escPress():
+	if Input.is_action_just_pressed("pause") && !get_tree().paused:
 		pause()
-	elif Input.is_action_just_pressed("pause") and get_tree().paused:
+	elif Input.is_action_just_pressed("pause") && get_tree().paused:
 		resume()
 
 # Resumes the game when the Resume button is pressed
@@ -31,4 +54,8 @@ func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
 func _process(delta):
-	testEsc()
+	escPress()
+	
+	if GameManager.startCountdown:
+		GameManager.startCountdown = false
+		countdown()
