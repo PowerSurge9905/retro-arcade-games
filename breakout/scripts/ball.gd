@@ -32,15 +32,19 @@ func _physics_process(delta: float) -> void:
 			velocity = velocity.bounce(collision.get_normal())
 			
 			# Makes sure the ball doesn't slow down too much along the vertical axis
-			if (velocity.y > 0 and velocity.y < speed/2):
-				velocity.y = 200
-			if (velocity.y <= 0 and velocity.y > speed/-2):
-				velocity.y = -200
+			@warning_ignore("integer_division")
+			if (velocity.y > 0 and velocity.y < speed / 2):
+				velocity.y = speed
+			@warning_ignore("integer_division")
+			if (velocity.y <= 0 and velocity.y > speed / -2):
+				velocity.y = speed * -1
 			
 			# Makes sure the ball doesn't slow down too much along th horizontal axis
-			if (velocity.x > 0 and velocity.x < speed/4):
+			@warning_ignore("integer_division")
+			if (velocity.x > 0 and velocity.x < speed / 4):
 				velocity.x = speed
-			if (velocity.x <= 0 and velocity.x > speed/-4):
+			@warning_ignore("integer_division")
+			if (velocity.x <= 0 and velocity.x > speed / -4):
 				velocity.x = speed * -1
 				
 			# Check if the object the ball collided with has the 'hit' method
@@ -93,7 +97,7 @@ func enableBall():
 	is_active = true
 
 # Detects if the ball touches the bottom of the screen
-func _on_death_plane_body_entered(body: Node2D) -> void:
+func _on_death_plane_body_entered(_body: Node2D) -> void:
 	if GameManager.lives == 1:
 		gameOver()
 	else:
