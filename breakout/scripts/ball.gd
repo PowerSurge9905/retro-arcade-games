@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 			if (velocity.y <= 0 and velocity.y > speed / -2):
 				velocity.y = speed * -1
 			
-			# Makes sure the ball doesn't slow down too much along th horizontal axis
+			# Makes sure the ball doesn't slow down too much along the horizontal axis
 			@warning_ignore("integer_division")
 			if (velocity.x > 0 and velocity.x < speed / 4):
 				velocity.x = speed

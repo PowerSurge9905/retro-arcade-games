@@ -39,7 +39,7 @@ texture = ExtResource("2_5d2l8")
 layout_mode = 2
 text = "QUIT"
 
-[node name="Sprite2D3" type="Sprite2D" parent="PauseContainer/VBoxContainer/QuitButton"]
+[node name="QuitButton" type="Sprite2D" parent="PauseContainer/VBoxContainer/QuitButton"]
 texture_filter = 1
 position = Vector2(36.25, 15)
 scale = Vector2(2.11806, 3.38889)
@@ -53,9 +53,10 @@ texture = ExtResource("4_5d2l8")
 
 [node name="CountdownContainer" type="MarginContainer" parent="."]
 layout_mode = 0
+offset_left = -94.0
 offset_top = -3.0
-offset_right = 116.0
-offset_bottom = 34.0
+offset_right = 208.0
+offset_bottom = 43.0
 
 [node name="Countdown Label" type="Label" parent="CountdownContainer"]
 texture_filter = 1

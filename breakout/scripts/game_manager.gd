@@ -23,6 +23,7 @@ var colors = [
 		]
 var canPause = false
 var startCountdown = false
+var levelComplete = false
 
 # Loads highest score from file
 func _ready() -> void:

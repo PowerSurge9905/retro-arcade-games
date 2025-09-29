@@ -39,8 +39,9 @@ func hit():
 	# otherwise, just fully remove the hit brick from the scene
 	if bricksLeft.size() == 1 || Input.is_action_pressed("ui_up"):
 		GameManager.paddleCanMove = false
+		GameManager.levelComplete = true
 		get_parent().get_node("Ball").is_active = false
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(3).timeout
 		GameManager.level += 1
 		get_tree().reload_current_scene()
 	else:

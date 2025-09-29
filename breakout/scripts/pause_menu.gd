@@ -35,6 +35,14 @@ func countdown():
 	$CountdownContainer.visible = false
 	GameManager.canPause = true
 
+func levelComplete():
+	GameManager.canPause = false
+	$"CountdownContainer/Countdown Label".text = "LEVEL CLEARED!"
+	$CountdownContainer.visible = true
+	await get_tree().create_timer(3).timeout
+	$CountdownContainer.visible = false
+	GameManager.canPause = true
+
 # Checks for whether the game is currently paused and if the player presses ESCAPE
 # Pauses/Unpauses based on current pause state
 func escPress():
@@ -53,9 +61,13 @@ func _on_quit_button_pressed() -> void:
 	# Make this change the scene to the main menu once it's functional
 	get_tree().quit()
 
-func _process(delta):
+func _process(_delta):
 	escPress()
 	
 	if GameManager.startCountdown:
 		GameManager.startCountdown = false
 		countdown()
+	
+	if GameManager.levelComplete:
+		GameManager.levelComplete = false
+		levelComplete()
