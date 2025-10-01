@@ -15,6 +15,8 @@ var is_active = false
 # Gives the ball velocity, allows the countdown to play,
 # then activates the ball and gives the player control over the paddle
 func _ready() -> void:
+	position = $"../Camera2D".position
+	position.y += 100
 	velocity = Vector2(speed * -1, speed)
 	await get_tree().create_timer(4.5).timeout
 	is_active = true
@@ -73,8 +75,8 @@ func gameOver():
 
 # Returns the ball to its starting position
 func toCenter():
-	position.x = 576
-	position.y = 440
+	position = $"../Camera2D".position
+	position.y += 100
 	velocity = Vector2(speed * -1, speed)
 
 # Subtracts one life, returns ball to center, starts countdown
@@ -98,6 +100,7 @@ func enableBall():
 
 # Detects if the ball touches the bottom of the screen
 func _on_death_plane_body_entered(_body: Node2D) -> void:
+	GameManager.canPause = false
 	if GameManager.lives == 1:
 		gameOver()
 	else:

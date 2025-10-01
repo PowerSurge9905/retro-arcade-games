@@ -8,11 +8,10 @@ extends Node2D
 # as well as how far from the edge of the screen they should be (in pixels)
 var columns = GameManager.columns
 var rows = GameManager.rows + GameManager.level - 1
-var margin = 50
+var margin = 54
 
 # Runs setupLevel() upon the game starting
 func _ready() -> void:
-	$CanvasLayer/PauseMenu.visible = true
 	setupLevel()
 
 # Places the bricks in the level

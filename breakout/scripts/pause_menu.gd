@@ -2,6 +2,8 @@ extends Control
 
 # Hides the pause menu and countdown on start, then starts countdown
 func _ready() -> void:
+	position = $"../../Camera2D".position
+	position.x -= 116
 	$PauseContainer.visible = false
 	$CountdownContainer.visible = false
 	countdown()
