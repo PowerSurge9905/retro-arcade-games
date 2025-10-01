@@ -1,10 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://dov32bmbn2dpc"]
+[gd_scene load_steps=11 format=3 uid="uid://dov32bmbn2dpc"]
 
 [ext_resource type="Texture2D" uid="uid://pae8ah7l848c" path="res://91657.jpg" id="1_ksr1t"]
 [ext_resource type="FontFile" uid="uid://tjuu1kcfvts5" path="res://PixelifySans-VariableFont_wght.ttf" id="2_qixy7"]
+[ext_resource type="Script" uid="uid://bn3qx2wbl63b0" path="res://game_select.gd" id="3_qixy7"]
+[ext_resource type="AudioStream" uid="uid://45sfp3ojvcek" path="res://video-game-select-337214.mp3" id="4_ukx5l"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ukx5l"]
 texture = ExtResource("1_ksr1t")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ksr1t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qixy7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ukx5l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iirj0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v2d3h"]
 
 [node name="Game-selct" type="Control"]
 layout_mode = 3
@@ -38,3 +50,35 @@ theme_override_font_sizes/font_size = 45
 text = "Game Selection"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="back_btn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -37.0
+offset_right = 114.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.730218, 0.509521, 0.0703096, 1)
+theme_override_colors/font_hover_color = Color(0.833306, 0.633279, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.729412, 0.509804, 0.0705882, 1)
+theme_override_fonts/font = ExtResource("2_qixy7")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ksr1t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_qixy7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ukx5l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_iirj0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v2d3h")
+text = "Previous Screen"
+script = ExtResource("3_qixy7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ukx5l")
+
+[connection signal="pressed" from="back_btn" to="back_btn" method="_on_back_btn_pressed"]
