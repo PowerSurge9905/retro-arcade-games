@@ -31,6 +31,7 @@ func hit():
 	$CollisionShape2D.disabled = true
 	
 	var bricksLeft = get_tree().get_nodes_in_group('Brick')
+	print(bricksLeft.size())
 	
 	# THE "OR" CONDITION HERE IS FOR DEBUGGING PURPOSES,
 	# I DO NOT WANT TO HAVE TO PLAY THE WHOLE LEVEL JUST TO TEST THIS FEATURE
@@ -46,5 +47,5 @@ func hit():
 		get_tree().reload_current_scene()
 	else:
 		# Waits 3 seconds, then fully removes the brick from the scene
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(1).timeout
 		queue_free()
