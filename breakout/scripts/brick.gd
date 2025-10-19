@@ -33,12 +33,13 @@ func hit():
 	var bricksLeft = get_tree().get_nodes_in_group('Brick')
 	print(bricksLeft.size())
 	
-	# THE "OR" CONDITION HERE IS FOR DEBUGGING PURPOSES,
-	# I DO NOT WANT TO HAVE TO PLAY THE WHOLE LEVEL JUST TO TEST THIS FEATURE
-	# HOLDING UP ARROW WHILE THE BALL HITS A BRICK MOVES ON TO THE NEXT LEVEL
 	# If there is one brick left, reload the scene and move on to the next level,
 	# otherwise, just fully remove the hit brick from the scene
-	if bricksLeft.size() == 1 || Input.is_action_pressed("ui_up"):
+	# Commented if statement is for debugging
+	# Un-comment it and comment the shorter if statment to make the up arrow clear a level
+	# Vice versa for just proper gameplay
+	#if bricksLeft.size() == 1 || Input.is_action_pressed("ui_up"):
+	if bricksLeft.size() == 1:
 		GameManager.paddleCanMove = false
 		GameManager.levelComplete = true
 		get_parent().get_node("Ball").is_active = false

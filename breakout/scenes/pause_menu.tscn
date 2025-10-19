@@ -10,9 +10,9 @@
 process_mode = 3
 layout_mode = 3
 anchor_right = 0.101
-anchor_bottom = 0.102000006
+anchor_bottom = 0.102
 offset_right = -0.352005
-offset_bottom = -0.09600067
+offset_bottom = -0.0960007
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kukqi")

@@ -8,7 +8,7 @@
 size = Vector2(80, 16)
 
 [sub_resource type="Gradient" id="Gradient_7mekc"]
-offsets = PackedFloat32Array(0, 0.48630136, 1)
+offsets = PackedFloat32Array(0, 0.486301, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Brick" type="RigidBody2D" groups=["Brick"]]
