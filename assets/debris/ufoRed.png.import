@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu2s4nv2n3stp"
-path="res://.godot/imported/beautiful-shining-stars-night-sky.jpg-b888824396a1c5c38558fc7734779bc0.ctex"
+uid="uid://bq3s3payqol1p"
+path="res://.godot/imported/ufoRed.png-a97a958fcb4b48fecbb7302f68533799.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/beautiful-shining-stars-night-sky.jpg"
-dest_files=["res://.godot/imported/beautiful-shining-stars-night-sky.jpg-b888824396a1c5c38558fc7734779bc0.ctex"]
+source_file="res://assets/debris/ufoRed.png"
+dest_files=["res://.godot/imported/ufoRed.png-a97a958fcb4b48fecbb7302f68533799.ctex"]
 
 [params]
 

@@ -2,18 +2,18 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bkrareivkfper"
-path="res://.godot/imported/Orbitron-Medium.ttf-0d3cd88166f12a3096066c2eef570744.fontdata"
+uid="uid://da0jonpbu6wii"
+path="res://.godot/imported/Pixeled.ttf-e8bbf35245fcf80d16d4c25fafd33f1f.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Orbitron-Medium.ttf"
-dest_files=["res://.godot/imported/Orbitron-Medium.ttf-0d3cd88166f12a3096066c2eef570744.fontdata"]
+source_file="res://assets/fonts/Pixeled.ttf"
+dest_files=["res://.godot/imported/Pixeled.ttf-e8bbf35245fcf80d16d4c25fafd33f1f.fontdata"]
 
 [params]
 
 Rendering=null
-antialiasing=1
+antialiasing=0
 generate_mipmaps=false
 disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
@@ -29,7 +29,12 @@ Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[]
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0)
+}]
 language_support={}
 script_support={}
 opentype_features={}
