@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dx4prby6pa5ow"]
+
+[ext_resource type="FontFile" uid="uid://tjuu1kcfvts5" path="res://PixelifySans-VariableFont_wght.ttf" id="1_nfovr"]
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.831373, 0.631373, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0.729412, 0.509804, 0.0705882, 1)
+Button/fonts/font = ExtResource("1_nfovr")

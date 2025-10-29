@@ -1,0 +1,139 @@
+[gd_scene load_steps=11 format=3 uid="uid://hfa24brxxlcl"]
+
+[ext_resource type="Script" uid="uid://bpapaicgcpihp" path="res://main_menu.gd" id="1_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://pae8ah7l848c" path="res://91657.jpg" id="2_fu7sn"]
+[ext_resource type="FontFile" uid="uid://bgdo025d76b4p" path="res://Pixeled.ttf" id="3_jix8l"]
+[ext_resource type="AudioStream" uid="uid://45sfp3ojvcek" path="res://video-game-select-337214.mp3" id="4_jix8l"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jix8l"]
+texture = ExtResource("2_fu7sn")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_06t4h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7vrkn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fu7sn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jix8l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rhts7"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7vrkn")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jix8l")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -594.0
+offset_top = 20.0
+offset_right = 596.0
+offset_bottom = 216.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 18
+theme_override_fonts/font = ExtResource("3_jix8l")
+theme_override_font_sizes/font_size = 55
+text = "Retro Arcade Games"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -101.5
+offset_right = 128.0
+offset_bottom = 179.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="game_list_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.730218, 0.509521, 0.0703096, 1)
+theme_override_colors/font_hover_color = Color(0.833306, 0.633279, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.729412, 0.509804, 0.0705882, 1)
+theme_override_fonts/font = ExtResource("3_jix8l")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_06t4h")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_7vrkn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fu7sn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jix8l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rhts7")
+text = "Game List"
+
+[node name="options_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.730218, 0.509521, 0.0703096, 1)
+theme_override_colors/font_hover_color = Color(0.833306, 0.633279, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.729412, 0.509804, 0.0705882, 1)
+theme_override_fonts/font = ExtResource("3_jix8l")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_06t4h")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_7vrkn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fu7sn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jix8l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rhts7")
+text = "Options"
+
+[node name="quit_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.730218, 0.509521, 0.0703096, 1)
+theme_override_colors/font_hover_color = Color(0.833306, 0.633279, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.729412, 0.509804, 0.0705882, 1)
+theme_override_fonts/font = ExtResource("3_jix8l")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_06t4h")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_7vrkn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fu7sn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jix8l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rhts7")
+text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer"]
+stream = ExtResource("4_jix8l")
+
+[connection signal="pressed" from="VBoxContainer/game_list_btn" to="." method="_on_game_list_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/game_list_btn" to="." method="_on_startgame_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/options_btn" to="." method="_on_options_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit_btn" to="." method="_on_quit_btn_pressed"]

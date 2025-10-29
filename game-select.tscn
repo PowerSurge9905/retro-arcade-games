@@ -1,0 +1,123 @@
+[gd_scene load_steps=14 format=3 uid="uid://dov32bmbn2dpc"]
+
+[ext_resource type="Texture2D" uid="uid://pae8ah7l848c" path="res://91657.jpg" id="1_ksr1t"]
+[ext_resource type="FontFile" uid="uid://bgdo025d76b4p" path="res://Pixeled.ttf" id="2_nq0n5"]
+[ext_resource type="Script" uid="uid://bn3qx2wbl63b0" path="res://game_select.gd" id="3_qixy7"]
+[ext_resource type="Theme" uid="uid://dx4prby6pa5ow" path="res://arcadeGameMenuButtonTheme.tres" id="3_v2d3h"]
+[ext_resource type="AudioStream" uid="uid://45sfp3ojvcek" path="res://video-game-select-337214.mp3" id="4_ukx5l"]
+[ext_resource type="Texture2D" uid="uid://c4q548gptvw3b" path="res://breakoutIMG.png" id="6_nq0n5"]
+[ext_resource type="Texture2D" uid="uid://b0nns4q3aacrp" path="res://StarSweeper,thumbnail.png" id="7_ntscf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ukx5l"]
+texture = ExtResource("1_ksr1t")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ksr1t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qixy7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ukx5l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iirj0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v2d3h"]
+
+[node name="Game-selct" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ukx5l")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -279.0
+offset_right = 279.0
+offset_bottom = 126.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_nq0n5")
+theme_override_font_sizes/font_size = 45
+text = "Game Selection"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back_btn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -62.0
+offset_right = 308.0
+offset_bottom = -2.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_v2d3h")
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.730218, 0.509521, 0.0703096, 1)
+theme_override_colors/font_hover_color = Color(0.833306, 0.633279, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.729412, 0.509804, 0.0705882, 1)
+theme_override_fonts/font = ExtResource("2_nq0n5")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ksr1t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_qixy7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ukx5l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_iirj0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v2d3h")
+text = "Previous Screen"
+script = ExtResource("3_qixy7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ukx5l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -228.0
+offset_top = -466.0
+offset_right = 229.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="breakout_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_v2d3h")
+theme_override_fonts/font = ExtResource("2_nq0n5")
+theme_override_font_sizes/font_size = 15
+text = "Play Breakout"
+icon = ExtResource("6_nq0n5")
+
+[node name="starSweeper_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_v2d3h")
+theme_override_fonts/font = ExtResource("2_nq0n5")
+theme_override_font_sizes/font_size = 15
+text = "Play Star Sweeper"
+icon = ExtResource("7_ntscf")
+
+[connection signal="pressed" from="back_btn" to="back_btn" method="_on_back_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/breakout_btn" to="back_btn" method="_on_breakout_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/starSweeper_btn" to="back_btn" method="_on_star_sweeper_btn_pressed"]
