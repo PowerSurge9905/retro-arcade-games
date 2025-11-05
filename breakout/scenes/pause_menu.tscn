@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://7b2nabx7txpx"]
+
+[ext_resource type="Script" uid="uid://bxbyejm8emmoj" path="res://scripts/pause_menu.gd" id="1_kukqi"]
+[ext_resource type="Texture2D" uid="uid://drxt00o8pk2cj" path="res://assets/resume.png" id="2_5d2l8"]
+[ext_resource type="Texture2D" uid="uid://cu2avv54veyn5" path="res://assets/quit.png" id="3_7l7mv"]
+[ext_resource type="Texture2D" uid="uid://b6ewa6q1vkwmx" path="res://assets/pause.png" id="4_5d2l8"]
+[ext_resource type="FontFile" uid="uid://da0jonpbu6wii" path="res://fonts/Pixeled.ttf" id="5_7l7mv"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchor_right = 0.101
+anchor_bottom = 0.102
+offset_right = -0.352005
+offset_bottom = -0.0960007
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kukqi")
+
+[node name="PauseContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.6, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseContainer"]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="PauseContainer/VBoxContainer"]
+layout_mode = 2
+text = "RESUME"
+
+[node name="ResumeSprite" type="Sprite2D" parent="PauseContainer/VBoxContainer/ResumeButton"]
+texture_filter = 1
+position = Vector2(36.25, 15)
+scale = Vector2(2.11806, 3.38889)
+texture = ExtResource("2_5d2l8")
+
+[node name="QuitButton" type="Button" parent="PauseContainer/VBoxContainer"]
+layout_mode = 2
+text = "QUIT"
+
+[node name="QuitButton" type="Sprite2D" parent="PauseContainer/VBoxContainer/QuitButton"]
+texture_filter = 1
+position = Vector2(36.25, 15)
+scale = Vector2(2.11806, 3.38889)
+texture = ExtResource("3_7l7mv")
+
+[node name="Pause Sprite" type="Sprite2D" parent="PauseContainer"]
+texture_filter = 1
+position = Vector2(36.25, -30)
+scale = Vector2(2.11806, 3.38889)
+texture = ExtResource("4_5d2l8")
+
+[node name="CountdownContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = -92.0
+offset_top = -3.0
+offset_right = 208.0
+offset_bottom = 43.0
+
+[node name="Countdown Label" type="Label" parent="CountdownContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_7l7mv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PauseContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

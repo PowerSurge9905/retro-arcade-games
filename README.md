@@ -1,2 +1,2 @@
-# retro-arcade-games: Main Menu Branch
+# retro-arcade-games: Main Branch
 A collection of retro arcade games made using Godot.
