@@ -11,7 +11,7 @@ var _intensity: float = 0.0
 
 func _ready() -> void:
 	make_current()                         # use this as the active camera
-	add_to_group("game_camera")            # optional: easy to find from other nodes
+	add_to_group("game_camera")           
 	position_smoothing_enabled = not disable_smoothing
 	offset = Vector2.ZERO
 
@@ -29,7 +29,7 @@ func shake(intensity: float = -1.0, duration: float = -1.0) -> void:
 func _process(delta: float) -> void:
 	if _time_left > 0.0:
 		_time_left -= delta
-		var t := clampf(_time_left / max(0.0001, _duration), 0.0, 1.0) # progress 1→0
+		var t := clampf(_time_left / max(0.0001, _duration), 0.0, 1.0) 
 		var falloff := t                                               # linear fade
 
 		# random 2D unit direction

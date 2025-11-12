@@ -1,15 +1,18 @@
-# ScoreManager.gd 
+# scripts/ScoreManager.gd
 extends Node
 
+# File Path For Saving
 const SAVE_PATH: String = "user://high_score.json"
 
+# Score Data
 var score: int = 0
 var high_score: int = 0
 
+# Setup On Start
 func _ready() -> void:
 	_load_high_score()
 
-# --- current score ---
+# Current Score
 func get_score() -> int:
 	return score
 
@@ -20,7 +23,7 @@ func add_score(amount: int) -> void:
 func reset_score() -> void:
 	score = 0
 
-# --- high score ---
+# High Score
 func get_high_score() -> int:
 	return high_score
 
@@ -31,7 +34,7 @@ func try_set_high_score(value: int) -> bool:
 		return true
 	return false
 
-# --- save / load ---
+# Save / Load High Score
 func _save_high_score() -> void:
 	var f := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if f:
@@ -42,12 +45,10 @@ func _load_high_score() -> void:
 	if not FileAccess.file_exists(SAVE_PATH):
 		high_score = 0
 		return
-
 	var f: FileAccess = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if f:
 		var text: String = f.get_as_text()
 		f.close()
-
 		var parsed: Variant = JSON.parse_string(text)
 		if parsed is Dictionary:
 			var dict: Dictionary = parsed as Dictionary
@@ -55,3 +56,7 @@ func _load_high_score() -> void:
 				high_score = int(dict["high_score"])
 		else:
 			high_score = 0
+
+# Extra Helper (Used By Game Reset)
+func reset() -> void:
+	reset_score()
