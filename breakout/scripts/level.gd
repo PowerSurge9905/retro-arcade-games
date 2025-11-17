@@ -2,17 +2,18 @@ extends Node2D
 # This script sets up the bricks within the level
 
 # Preloads the brick
-@onready var brickObject = preload("res://scenes/brick.tscn")
+@onready var brickObject = preload("res://breakout/scenes/brick.tscn")
 
 # Sets the number of rows and columns of bricks,
 # as well as how far from the edge of the screen they should be (in pixels)
-var columns = GameManager.columns
-var rows = GameManager.rows + GameManager.level - 1
+var columns = BreakoutGameManager.columns
+var rows = BreakoutGameManager.rows + BreakoutGameManager.level - 1
 var margin = 54
 
 # Runs setupLevel() upon the game starting
 func _ready() -> void:
 	setupLevel()
+	BreakoutGameManager.showManager()
 
 # Places the bricks in the level
 func setupLevel():
@@ -32,10 +33,10 @@ func setupLevel():
 			# Gives each brick a color from colors[] depending on what the current row is
 			var sprite = newBrick.get_node('Sprite2D')
 			if r < 2:
-				sprite.modulate = GameManager.colors[0] #Green
+				sprite.modulate = BreakoutGameManager.colors[0] #Green
 			elif r < 4:
-				sprite.modulate = GameManager.colors[1] #Yellow
+				sprite.modulate = BreakoutGameManager.colors[1] #Yellow
 			elif r < 6:
-				sprite.modulate = GameManager.colors[2] #Orange
+				sprite.modulate = BreakoutGameManager.colors[2] #Orange
 			else:
-				sprite.modulate = GameManager.colors[3] #Red
+				sprite.modulate = BreakoutGameManager.colors[3] #Red

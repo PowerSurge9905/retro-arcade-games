@@ -1,12 +1,12 @@
 [gd_scene load_steps=14 format=3 uid="uid://dov32bmbn2dpc"]
 
-[ext_resource type="Texture2D" uid="uid://pae8ah7l848c" path="res://91657.jpg" id="1_ksr1t"]
-[ext_resource type="FontFile" uid="uid://bgdo025d76b4p" path="res://Pixeled.ttf" id="2_nq0n5"]
-[ext_resource type="Script" uid="uid://bn3qx2wbl63b0" path="res://game_select.gd" id="3_qixy7"]
-[ext_resource type="Theme" uid="uid://dx4prby6pa5ow" path="res://arcadeGameMenuButtonTheme.tres" id="3_v2d3h"]
-[ext_resource type="AudioStream" uid="uid://45sfp3ojvcek" path="res://video-game-select-337214.mp3" id="4_ukx5l"]
-[ext_resource type="Texture2D" uid="uid://c4q548gptvw3b" path="res://breakoutIMG.png" id="6_nq0n5"]
-[ext_resource type="Texture2D" uid="uid://b0nns4q3aacrp" path="res://StarSweeper,thumbnail.png" id="7_ntscf"]
+[ext_resource type="Texture2D" uid="uid://pae8ah7l848c" path="res://main-menu/assets/91657.jpg" id="1_ksr1t"]
+[ext_resource type="FontFile" uid="uid://da0jonpbu6wii" path="res://global-assets/fonts/Pixeled.ttf" id="2_nq0n5"]
+[ext_resource type="Script" uid="uid://bn3qx2wbl63b0" path="res://main-menu/scripts/game_select.gd" id="3_qixy7"]
+[ext_resource type="Theme" uid="uid://dx4prby6pa5ow" path="res://main-menu/resources/arcadeGameMenuButtonTheme.tres" id="3_v2d3h"]
+[ext_resource type="AudioStream" uid="uid://45sfp3ojvcek" path="res://main-menu/sounds/video-game-select-337214.mp3" id="4_ukx5l"]
+[ext_resource type="Texture2D" uid="uid://c4q548gptvw3b" path="res://main-menu/assets/breakoutIMG.png" id="6_nq0n5"]
+[ext_resource type="Texture2D" uid="uid://b0nns4q3aacrp" path="res://main-menu/assets/StarSweeper,thumbnail.png" id="7_ntscf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ukx5l"]
 texture = ExtResource("1_ksr1t")

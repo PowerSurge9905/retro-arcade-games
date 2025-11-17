@@ -2,13 +2,12 @@ extends Node
 #This script keeps track of the player's score & save data
 
 @onready var sound_life_gain = $LifeGainSoundPlayer
-
-# GLOBALS
+# GLOBALS - Breakout
 # Used for score saving/loading
 var high_score = 0
-var score = 516
-var level = 9
-var lives = 13
+var score = 0
+var level = 1
+var lives = 3
 
 # GLOBALS
 # Used for level building, visuals, and game logic
@@ -27,7 +26,28 @@ var levelComplete = false
 
 # Loads highest score from file
 func _ready() -> void:
+	hideManager()
 	loadGame()
+
+func showManager():
+	$CanvasLayer.visible = true
+
+func hideManager():
+	$CanvasLayer.visible = false
+
+func resetBreakoutManager():
+	score = 0
+	level = 1
+	lives = 3
+	paddleCanMove = false
+	canPause = false
+	startCountdown = false
+	levelComplete = false
+
+func killBreakout():
+	saveGame()
+	resetBreakoutManager()
+	hideManager()
 
 # Is called by res://scripts/ball.gd upon hitting a brick
 # Adds one life if the player gets to a score that's divisible by 50
@@ -39,7 +59,6 @@ func addPoints(points):
 		sound_life_gain.play()
 	if score > high_score:
 		high_score = score
-
 
 # Converts the previous game's score and the high score into a dictionary
 # Expand to saving 5 highest scores while connecting the game to the main menu

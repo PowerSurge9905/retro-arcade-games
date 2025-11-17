@@ -15,14 +15,14 @@ func resume():
 
 # Pauses play
 func pause():
-	if GameManager.canPause:
+	if BreakoutGameManager.canPause:
 		get_tree().paused = true
 		$PauseContainer.visible = true
 
 # A countdown to the game starting
 # Gives the player a moment to analyze the game
 func countdown():
-	GameManager.canPause = false
+	BreakoutGameManager.canPause = false
 	$CountdownContainer.visible = true
 	$"CountdownContainer/Countdown Label".text = "READY?"
 	await get_tree().create_timer(2).timeout
@@ -35,15 +35,15 @@ func countdown():
 	$"CountdownContainer/Countdown Label".text = "GO!"
 	await get_tree().create_timer(1).timeout
 	$CountdownContainer.visible = false
-	GameManager.canPause = true
+	BreakoutGameManager.canPause = true
 
 func levelComplete():
-	GameManager.canPause = false
+	BreakoutGameManager.canPause = false
 	$"CountdownContainer/Countdown Label".text = "LEVEL CLEARED!"
 	$CountdownContainer.visible = true
 	await get_tree().create_timer(3).timeout
 	$CountdownContainer.visible = false
-	GameManager.canPause = true
+	BreakoutGameManager.canPause = true
 
 # Checks for whether the game is currently paused and if the player presses ESCAPE
 # Pauses/Unpauses based on current pause state
@@ -61,15 +61,17 @@ func _on_resume_button_pressed() -> void:
 # Will send the player back to the main menu in the final verison
 func _on_quit_button_pressed() -> void:
 	# Make this change the scene to the main menu once it's functional
-	get_tree().quit()
+	resume()
+	BreakoutGameManager.killBreakout()
+	get_tree().change_scene_to_file("res://main-menu/scenes/main_menu.tscn")
 
 func _process(_delta):
 	escPress()
 	
-	if GameManager.startCountdown:
-		GameManager.startCountdown = false
+	if BreakoutGameManager.startCountdown:
+		BreakoutGameManager.startCountdown = false
 		countdown()
 	
-	if GameManager.levelComplete:
-		GameManager.levelComplete = false
+	if BreakoutGameManager.levelComplete:
+		BreakoutGameManager.levelComplete = false
 		levelComplete()

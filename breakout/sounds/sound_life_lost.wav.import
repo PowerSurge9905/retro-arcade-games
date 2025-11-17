@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://br6tquddtimup"
-path="res://.godot/imported/sound_life_lost.wav-de5e871cf7e8e3fd75a680d3a7a1da9a.sample"
+path="res://.godot/imported/sound_life_lost.wav-0010d250a3d77020c1c643eaa368b74a.sample"
 
 [deps]
 
-source_file="res://sounds/sound_life_lost.wav"
-dest_files=["res://.godot/imported/sound_life_lost.wav-de5e871cf7e8e3fd75a680d3a7a1da9a.sample"]
+source_file="res://breakout/sounds/sound_life_lost.wav"
+dest_files=["res://.godot/imported/sound_life_lost.wav-0010d250a3d77020c1c643eaa368b74a.sample"]
 
 [params]
 

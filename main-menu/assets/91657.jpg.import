@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0nns4q3aacrp"
-path="res://.godot/imported/StarSweeper,thumbnail.png-1441017720a118d468d0eb54ab87c1e4.ctex"
+uid="uid://pae8ah7l848c"
+path="res://.godot/imported/91657.jpg-1cad6ba3a7a1b06dce82bf79e51302eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://StarSweeper,thumbnail.png"
-dest_files=["res://.godot/imported/StarSweeper,thumbnail.png-1441017720a118d468d0eb54ab87c1e4.ctex"]
+source_file="res://main-menu/assets/91657.jpg"
+dest_files=["res://.godot/imported/91657.jpg-1cad6ba3a7a1b06dce82bf79e51302eb.ctex"]
 
 [params]
 

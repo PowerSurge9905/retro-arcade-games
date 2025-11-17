@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://bmpyw2wurrkib"]
 
-[ext_resource type="Script" uid="uid://c3h10lunjhwo5" path="res://scripts/game_manager.gd" id="1_hwd4i"]
-[ext_resource type="AudioStream" uid="uid://bgavthulqn6ty" path="res://sounds/sound_life_gain.wav" id="2_glms7"]
-[ext_resource type="FontFile" uid="uid://da0jonpbu6wii" path="res://fonts/Pixeled.ttf" id="2_udu3i"]
+[ext_resource type="Script" uid="uid://bt44iwqe52nbo" path="res://breakout/scripts/breakout_game_manager.gd" id="1_7kj0r"]
+[ext_resource type="AudioStream" uid="uid://bgavthulqn6ty" path="res://breakout/sounds/sound_life_gain.wav" id="2_glms7"]
+[ext_resource type="FontFile" uid="uid://da0jonpbu6wii" path="res://global-assets/fonts/Pixeled.ttf" id="2_udu3i"]
 
 [node name="GameManager" type="Node"]
-script = ExtResource("1_hwd4i")
+script = ExtResource("1_7kj0r")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -55,6 +55,6 @@ text = "LEVEL: "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LifeGainSoundPlayer" type="AudioStreamPlayer" parent="."]
+[node name="LifeGainSoundPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_glms7")
 volume_db = 5.0

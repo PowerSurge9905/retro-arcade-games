@@ -8,7 +8,7 @@ extends CharacterBody2D
 @onready var sound_life_lost = $LifeLostSoundPlayer
 
 # Sets the ball's speed and status as active
-var speed = 200 + (20 * (GameManager.level - 1))
+var speed = 200 + (20 * (BreakoutGameManager.level - 1))
 var dir = Vector2.DOWN
 var is_active = false
 
@@ -20,7 +20,7 @@ func _ready() -> void:
 	velocity = Vector2(speed * -1, speed)
 	await get_tree().create_timer(4.5).timeout
 	is_active = true
-	GameManager.paddleCanMove = true
+	BreakoutGameManager.paddleCanMove = true
 
 # Checks whether the ball collides with anything (walls, bricks)
 func _physics_process(delta: float) -> void:
@@ -60,17 +60,17 @@ func _physics_process(delta: float) -> void:
 # Reload the scene if the ball touches the bottom of the screen
 func gameOver():
 	# Halts paddle movement without pausing other processes
-	GameManager.paddleCanMove = false
+	BreakoutGameManager.paddleCanMove = false
 	# Save game
-	GameManager.saveGame()
+	BreakoutGameManager.saveGame()
 	# Play the game over sound, wait 3 seconds
 	sound_game_over.play()
 	await get_tree().create_timer(3).timeout
 	# Reset scene, score, level, row count, and lives
-	GameManager.score = 0
-	GameManager.level = 1
-	GameManager.rows = 2
-	GameManager.lives = 3
+	BreakoutGameManager.score = 0
+	BreakoutGameManager.level = 1
+	BreakoutGameManager.rows = 2
+	BreakoutGameManager.lives = 3
 	get_tree().reload_current_scene()
 
 # Returns the ball to its starting position
@@ -82,10 +82,10 @@ func toCenter():
 # Subtracts one life, returns ball to center, starts countdown
 func lifeLost():
 	sound_life_lost.play()
-	GameManager.lives -= 1
+	BreakoutGameManager.lives -= 1
 	await get_tree().create_timer(3).timeout
 	toCenter()
-	GameManager.startCountdown = true
+	BreakoutGameManager.startCountdown = true
 	disableBall()
 	await get_tree().create_timer(4.5).timeout
 	enableBall()
@@ -100,8 +100,8 @@ func enableBall():
 
 # Detects if the ball touches the bottom of the screen
 func _on_death_plane_body_entered(_body: Node2D) -> void:
-	GameManager.canPause = false
-	if GameManager.lives == 1:
+	BreakoutGameManager.canPause = false
+	if BreakoutGameManager.lives == 1:
 		gameOver()
 	else:
 		lifeLost()

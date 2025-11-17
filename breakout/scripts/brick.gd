@@ -3,17 +3,17 @@ extends RigidBody2D
 
 # Used for calculating broken brick particle color
 var brickRow = 0
-var green = GameManager.colors[0]
-var yellow = GameManager.colors[1]
-var orange = GameManager.colors[2]
-var red = GameManager.colors[3]
+var green = BreakoutGameManager.colors[0]
+var yellow = BreakoutGameManager.colors[1]
+var orange = BreakoutGameManager.colors[2]
+var red = BreakoutGameManager.colors[3]
 
 # Hides the brick and disables its collision upon being hit by the ball
-# Is called by res://scripts/ball.gd upon hitting a brick
+# Is called by res://breakout/scripts/ball.gd upon hitting a brick
 func hit():
 	
-	# Adds one point to the player's score, see res://scripts/game_manager.gd
-	GameManager.addPoints(1)
+	# Adds one point to the player's score, see res://breakout/scripts/breakout_game_manager.gd
+	BreakoutGameManager.addPoints(1)
 	
 	# Sets the broken brick particle
 	if brickRow < 2:
@@ -31,7 +31,7 @@ func hit():
 	$CollisionShape2D.disabled = true
 	
 	var bricksLeft = get_tree().get_nodes_in_group('Brick')
-	print(bricksLeft.size())
+	#print(bricksLeft.size())
 	
 	# If there is one brick left, reload the scene and move on to the next level,
 	# otherwise, just fully remove the hit brick from the scene
@@ -40,11 +40,11 @@ func hit():
 	# Vice versa for just proper gameplay
 	#if bricksLeft.size() == 1 || Input.is_action_pressed("ui_up"):
 	if bricksLeft.size() == 1:
-		GameManager.paddleCanMove = false
-		GameManager.levelComplete = true
+		BreakoutGameManager.paddleCanMove = false
+		BreakoutGameManager.levelComplete = true
 		get_parent().get_node("Ball").is_active = false
 		await get_tree().create_timer(3).timeout
-		GameManager.level += 1
+		BreakoutGameManager.level += 1
 		get_tree().reload_current_scene()
 	else:
 		# Waits 3 seconds, then fully removes the brick from the scene

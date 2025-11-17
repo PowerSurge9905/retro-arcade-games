@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://7b2nabx7txpx"]
 
-[ext_resource type="Script" uid="uid://bxbyejm8emmoj" path="res://scripts/pause_menu.gd" id="1_kukqi"]
-[ext_resource type="Texture2D" uid="uid://drxt00o8pk2cj" path="res://assets/resume.png" id="2_5d2l8"]
-[ext_resource type="Texture2D" uid="uid://cu2avv54veyn5" path="res://assets/quit.png" id="3_7l7mv"]
-[ext_resource type="Texture2D" uid="uid://b6ewa6q1vkwmx" path="res://assets/pause.png" id="4_5d2l8"]
-[ext_resource type="FontFile" uid="uid://da0jonpbu6wii" path="res://fonts/Pixeled.ttf" id="5_7l7mv"]
+[ext_resource type="Script" uid="uid://bxbyejm8emmoj" path="res://breakout/scripts/pause_menu.gd" id="1_kukqi"]
+[ext_resource type="Texture2D" uid="uid://drxt00o8pk2cj" path="res://breakout/assets/resume.png" id="2_5d2l8"]
+[ext_resource type="Texture2D" uid="uid://cu2avv54veyn5" path="res://breakout/assets/quit.png" id="3_7l7mv"]
+[ext_resource type="Texture2D" uid="uid://b6ewa6q1vkwmx" path="res://breakout/assets/pause.png" id="4_5d2l8"]
+[ext_resource type="FontFile" uid="uid://da0jonpbu6wii" path="res://global-assets/fonts/Pixeled.ttf" id="5_7l7mv"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3

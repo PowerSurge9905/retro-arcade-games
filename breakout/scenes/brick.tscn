@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bdafxr18v1q2"]
 
-[ext_resource type="Script" uid="uid://cud7pr6ucumva" path="res://scripts/brick.gd" id="1_0w5h4"]
-[ext_resource type="Texture2D" uid="uid://bxkcp23x0vyi5" path="res://assets/brick_deco.png" id="2_7mekc"]
-[ext_resource type="Texture2D" uid="uid://ch0uvlo6muxoo" path="res://assets/brick_shard.png" id="3_7mekc"]
+[ext_resource type="Script" uid="uid://cud7pr6ucumva" path="res://breakout/scripts/brick.gd" id="1_0w5h4"]
+[ext_resource type="Texture2D" uid="uid://bxkcp23x0vyi5" path="res://breakout/assets/brick_deco.png" id="2_7mekc"]
+[ext_resource type="Texture2D" uid="uid://ch0uvlo6muxoo" path="res://breakout/assets/brick_shard.png" id="3_7mekc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_diwn3"]
 size = Vector2(80, 16)
