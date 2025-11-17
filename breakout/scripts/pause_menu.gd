@@ -66,8 +66,6 @@ func _on_resume_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
 	resume()
 	BreakoutGameManager.killBreakout()
-	sound_exit.play()
-	await get_tree().create_timer(0.2).timeout
 	get_tree().change_scene_to_file("res://main-menu/scenes/main_menu.tscn")
 
 # Constantly checks for an escape button press, level start countdown, or level completion
