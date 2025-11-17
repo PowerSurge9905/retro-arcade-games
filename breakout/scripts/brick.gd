@@ -2,6 +2,7 @@ extends RigidBody2D
 # This script controls brick breaking and brick particle spawning
 
 # Used for calculating broken brick particle color
+
 var brickRow = 0
 var green = BreakoutGameManager.colors[0]
 var yellow = BreakoutGameManager.colors[1]
@@ -11,7 +12,6 @@ var red = BreakoutGameManager.colors[3]
 # Hides the brick and disables its collision upon being hit by the ball
 # Is called by res://breakout/scripts/ball.gd upon hitting a brick
 func hit():
-	
 	# Adds one point to the player's score, see res://breakout/scripts/breakout_game_manager.gd
 	BreakoutGameManager.addPoints(1)
 	
@@ -31,7 +31,7 @@ func hit():
 	$CollisionShape2D.disabled = true
 	
 	var bricksLeft = get_tree().get_nodes_in_group('Brick')
-	#print(bricksLeft.size())
+	print(bricksLeft)
 	
 	# If there is one brick left, reload the scene and move on to the next level,
 	# otherwise, just fully remove the hit brick from the scene
@@ -47,6 +47,8 @@ func hit():
 		BreakoutGameManager.level += 1
 		get_tree().reload_current_scene()
 	else:
-		# Waits 3 seconds, then fully removes the brick from the scene
+		# Fix issue where two bricks breaking in quick succession causes a level to not load
+		# Waits 1 seconds, then fully removes the brick from the scene
+		#bricksLeft -= 1
 		await get_tree().create_timer(1).timeout
 		queue_free()

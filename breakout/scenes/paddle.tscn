@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cvpckdqfi4ej6"]
 
-[ext_resource type="Script" uid="uid://ct6ulnl3pot7a" path="res://scripts/paddle.gd" id="1_y7wee"]
-[ext_resource type="Texture2D" uid="uid://c6cecvlxnqac0" path="res://assets/paddle_middle.png" id="2_mo4dg"]
-[ext_resource type="Texture2D" uid="uid://cpeoqod7g77ac" path="res://assets/paddle_end.png" id="3_pacq5"]
+[ext_resource type="Script" uid="uid://ct6ulnl3pot7a" path="res://breakout/scripts/paddle.gd" id="1_y7wee"]
+[ext_resource type="Texture2D" uid="uid://c6cecvlxnqac0" path="res://breakout/assets/paddle_middle.png" id="2_mo4dg"]
+[ext_resource type="Texture2D" uid="uid://cpeoqod7g77ac" path="res://breakout/assets/paddle_end.png" id="3_pacq5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y7wee"]
 radius = 4.0

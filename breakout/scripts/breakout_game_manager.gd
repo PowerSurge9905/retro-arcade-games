@@ -6,8 +6,8 @@ extends Node
 # Used for score saving/loading
 var high_score = 0
 var score = 0
-var level = 1
-var lives = 3
+var level = 25
+var lives = 41
 
 # GLOBALS
 # Used for level building, visuals, and game logic
