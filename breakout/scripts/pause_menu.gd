@@ -2,6 +2,7 @@ extends Control
 
 @onready var sound_exit = $ExitSoundPlayer
 
+# Centers pause menu position
 # Hides the pause menu and countdown on start, then starts countdown
 func _ready() -> void:
 	position = $"../../Camera2D".position
@@ -39,6 +40,7 @@ func countdown():
 	$CountdownContainer.visible = false
 	BreakoutGameManager.canPause = true
 
+# Shows a message on level completion
 func levelComplete():
 	BreakoutGameManager.canPause = false
 	$"CountdownContainer/Countdown Label".text = "LEVEL CLEARED!"
@@ -59,16 +61,16 @@ func escPress():
 func _on_resume_button_pressed() -> void:
 	resume()
 
-# Exits the game when the Quit button is pressed
-# Will send the player back to the main menu in the final verison
+# Sends player back to main menu
+# Resets Breakout
 func _on_quit_button_pressed() -> void:
-	# Make this change the scene to the main menu once it's functional
 	resume()
 	BreakoutGameManager.killBreakout()
 	sound_exit.play()
 	await get_tree().create_timer(0.2).timeout
 	get_tree().change_scene_to_file("res://main-menu/scenes/main_menu.tscn")
 
+# Constantly checks for an escape button press, level start countdown, or level completion
 func _process(_delta):
 	escPress()
 	
