@@ -1,5 +1,7 @@
 extends Control
 
+@onready var sound_exit = $ExitSoundPlayer
+
 # Hides the pause menu and countdown on start, then starts countdown
 func _ready() -> void:
 	position = $"../../Camera2D".position
@@ -63,6 +65,8 @@ func _on_quit_button_pressed() -> void:
 	# Make this change the scene to the main menu once it's functional
 	resume()
 	BreakoutGameManager.killBreakout()
+	sound_exit.play()
+	await get_tree().create_timer(0.2).timeout
 	get_tree().change_scene_to_file("res://main-menu/scenes/main_menu.tscn")
 
 func _process(_delta):
