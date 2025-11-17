@@ -23,7 +23,7 @@ extends Node2D
 const VIDEO_PATH := "res://assets/bg_video/star_burst_2.ogv"
 
 # == Level & Score Rules ==
-const LEVELS_MAX: int = 10
+const LEVELS_MAX: int = 100
 const SCORE_PER_LEVEL: int = 25
 
 var _current_level: int = 1
