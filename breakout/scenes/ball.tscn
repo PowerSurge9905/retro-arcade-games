@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdjt5wbefmumm"]
+
+[ext_resource type="Script" uid="uid://cyc63naa3oeu0" path="res://breakout/scripts/ball.gd" id="1_gm0sj"]
+[ext_resource type="Texture2D" uid="uid://brklcuyriqpa1" path="res://breakout/assets/ball.png" id="2_k40n7"]
+[ext_resource type="AudioStream" uid="uid://5x053bdx7ygg" path="res://breakout/sounds/sound_bounce.wav" id="3_4dx81"]
+[ext_resource type="AudioStream" uid="uid://gjbwkh1u8fwn" path="res://breakout/sounds/sound_break.wav" id="4_eew57"]
+[ext_resource type="AudioStream" uid="uid://2xqlesnhpcgy" path="res://breakout/sounds/sound_game_over.wav" id="5_eew57"]
+[ext_resource type="AudioStream" uid="uid://br6tquddtimup" path="res://breakout/sounds/sound_life_lost.wav" id="6_jj7gd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7s4qf"]
+
+[sub_resource type="Gradient" id="Gradient_cxlvu"]
+offsets = PackedFloat32Array(0, 0.746667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 1, 1, 0.498039, 0, 0, 0, 0)
+
+[node name="Ball" type="CharacterBody2D"]
+script = ExtResource("1_gm0sj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_k40n7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7s4qf")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = 1
+texture = ExtResource("2_k40n7")
+lifetime = 0.4
+draw_order = 1
+gravity = Vector2(0, 0)
+scale_amount_min = 0.05
+scale_amount_max = 0.05
+color_ramp = SubResource("Gradient_cxlvu")
+
+[node name="BounceSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4dx81")
+
+[node name="BreakSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_eew57")
+volume_db = -5.0
+
+[node name="GameOverSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_eew57")
+
+[node name="LifeLostSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_jj7gd")
