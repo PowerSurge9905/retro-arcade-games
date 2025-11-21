@@ -30,16 +30,13 @@ func hit():
 	$Sprite2D.visible = false
 	$CollisionShape2D.disabled = true
 	
-	var bricksLeft = get_tree().get_nodes_in_group('Brick')
-	print(bricksLeft)
-	
 	# If there is one brick left, reload the scene and move on to the next level,
 	# otherwise, just fully remove the hit brick from the scene
 	# Commented if statement is for debugging
 	# Un-comment it and comment the shorter if statment to make the up arrow clear a level
 	# Vice versa for just proper gameplay
 	#if bricksLeft.size() == 1 || Input.is_action_pressed("ui_up"):
-	if bricksLeft.size() == 1:
+	if BreakoutGameManager.bricksLeft == 1:
 		BreakoutGameManager.paddleCanMove = false
 		BreakoutGameManager.levelComplete = true
 		get_parent().get_node("Ball").is_active = false
@@ -49,6 +46,7 @@ func hit():
 	else:
 		# Fix issue where two bricks breaking in quick succession causes a level to not load
 		# Waits 1 seconds, then fully removes the brick from the scene
-		#bricksLeft -= 1
+		BreakoutGameManager.bricksLeft -= 1
+		print(BreakoutGameManager.bricksLeft)
 		await get_tree().create_timer(1).timeout
 		queue_free()

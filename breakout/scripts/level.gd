@@ -14,11 +14,11 @@ var margin = 54
 func _ready() -> void:
 	setupLevel()
 	BreakoutGameManager.showManager()
+	BreakoutGameManager.bricksLeft = get_tree().get_nodes_in_group('Brick').size()
 
 # Places the bricks in the level
 func setupLevel():
-	if rows > 8:
-		rows = 8
+	rows = 8 if rows > 8 else rows
 	for r in rows:
 		for c in columns:
 			# Creates a new brick and places it using the current row (r) and column (c)

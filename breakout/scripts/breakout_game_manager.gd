@@ -13,6 +13,7 @@ var lives = 41
 # Used for level building, visuals, and game logic
 var rows = 2
 var columns = 12
+var bricksLeft = 0
 var paddleCanMove = false
 var colors = [
 		Color(0, 1, 0, 1),
