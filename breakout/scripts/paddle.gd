@@ -10,11 +10,11 @@ extends StaticBody2D
 # Vice-versa for only player control
 func _process(delta):
 	var move_direction = 0
-	if (Input.is_action_pressed("ui_left") || $"../Ball".position.x < (position.x - 20)) && BreakoutGameManager.paddleCanMove:
-	#if (Input.is_action_pressed("ui_left") && BreakoutGameManager.paddleCanMove):
+	#if (Input.is_action_pressed("ui_left") || $"../Ball".position.x < (position.x - 20)) && BreakoutGameManager.paddleCanMove:
+	if (Input.is_action_pressed("ui_left") && BreakoutGameManager.paddleCanMove):
 		move_direction = -1
-	elif (Input.is_action_pressed("ui_right") || $"../Ball".position.x > (position.x + 20)) && BreakoutGameManager.paddleCanMove:
-	#elif (Input.is_action_pressed("ui_right") && BreakoutGameManager.paddleCanMove):
+	#elif (Input.is_action_pressed("ui_right") || $"../Ball".position.x > (position.x + 20)) && BreakoutGameManager.paddleCanMove:
+	elif (Input.is_action_pressed("ui_right") && BreakoutGameManager.paddleCanMove):
 		move_direction = 1
 	
 	# Moves the paddle

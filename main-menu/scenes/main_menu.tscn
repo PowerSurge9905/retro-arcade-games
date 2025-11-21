@@ -90,26 +90,6 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_7vrkn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_06t4h")
 text = "Game List"
 
-[node name="options_btn" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.729412, 0.509804, 0.0705882, 1)
-theme_override_colors/font_hover_color = Color(0.833306, 0.633279, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.730218, 0.509521, 0.0703096, 1)
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_jix8l")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_rhts7")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_jix8l")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_fu7sn")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_7vrkn")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_06t4h")
-text = "Options"
-
 [node name="quit_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -135,5 +115,4 @@ stream = ExtResource("4_jix8l")
 
 [connection signal="pressed" from="VBoxContainer/game_list_btn" to="." method="_on_startgame_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/game_list_btn" to="." method="_on_game_list_btn_pressed"]
-[connection signal="pressed" from="VBoxContainer/options_btn" to="." method="_on_options_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit_btn" to="." method="_on_quit_btn_pressed"]

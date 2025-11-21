@@ -9,6 +9,7 @@ func _ready() -> void:
 	position.x -= 116
 	$PauseContainer.visible = false
 	$CountdownContainer.visible = false
+	$GameOverContainer.visible = false
 	countdown()
 
 # Resumes play
@@ -27,15 +28,15 @@ func pause():
 func countdown():
 	BreakoutGameManager.canPause = false
 	$CountdownContainer.visible = true
-	$"CountdownContainer/Countdown Label".text = "READY?"
+	$"CountdownContainer/CountdownLabel".text = "READY?"
 	await get_tree().create_timer(2).timeout
-	$"CountdownContainer/Countdown Label".text = "3"
+	$"CountdownContainer/CountdownLabel".text = "3"
 	await get_tree().create_timer(0.5).timeout
-	$"CountdownContainer/Countdown Label".text = "2"
+	$"CountdownContainer/CountdownLabel".text = "2"
 	await get_tree().create_timer(0.5).timeout
-	$"CountdownContainer/Countdown Label".text = "1"
+	$"CountdownContainer/CountdownLabel".text = "1"
 	await get_tree().create_timer(0.5).timeout
-	$"CountdownContainer/Countdown Label".text = "GO!"
+	$"CountdownContainer/CountdownLabel".text = "GO!"
 	await get_tree().create_timer(1).timeout
 	$CountdownContainer.visible = false
 	BreakoutGameManager.canPause = true
@@ -43,10 +44,18 @@ func countdown():
 # Shows a message on level completion
 func levelComplete():
 	BreakoutGameManager.canPause = false
-	$"CountdownContainer/Countdown Label".text = "LEVEL CLEARED!"
+	$"CountdownContainer/CountdownLabel".text = "LEVEL CLEARED!"
 	$CountdownContainer.visible = true
 	await get_tree().create_timer(3).timeout
 	$CountdownContainer.visible = false
+	BreakoutGameManager.canPause = true
+
+func gameOver():
+	BreakoutGameManager.canPause = false
+	$GameOverContainer/GameOverLabel.text = "GAME OVER"
+	$GameOverContainer.visible = true
+	await get_tree().create_timer(3).timeout
+	$GameOverContainer.visible = false
 	BreakoutGameManager.canPause = true
 
 # Checks for whether the game is currently paused and if the player presses ESCAPE
@@ -64,8 +73,8 @@ func _on_resume_button_pressed() -> void:
 # Sends player back to main menu
 # Resets Breakout
 func _on_quit_button_pressed() -> void:
-	resume()
 	BreakoutGameManager.killBreakout()
+	resume()
 	get_tree().change_scene_to_file("res://main-menu/scenes/main_menu.tscn")
 
 # Constantly checks for an escape button press, level start countdown, or level completion
@@ -79,3 +88,7 @@ func _process(_delta):
 	if BreakoutGameManager.levelComplete:
 		BreakoutGameManager.levelComplete = false
 		levelComplete()
+	
+	if BreakoutGameManager.gameOver:
+		BreakoutGameManager.gameOver = false
+		gameOver()

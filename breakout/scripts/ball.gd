@@ -61,6 +61,7 @@ func _physics_process(delta: float) -> void:
 func gameOver():
 	# Halts paddle movement without pausing other processes
 	BreakoutGameManager.paddleCanMove = false
+	BreakoutGameManager.gameOver = true
 	# Save game
 	BreakoutGameManager.saveGame()
 	# Play the game over sound, wait 3 seconds
