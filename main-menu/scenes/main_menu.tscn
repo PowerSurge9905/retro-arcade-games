@@ -91,6 +91,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_06t4h")
 text = "Game List"
 
 [node name="quit_btn" type="Button" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -112,7 +113,8 @@ text = "Quit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer"]
 stream = ExtResource("4_jix8l")
+volume_db = -79.0
 
-[connection signal="pressed" from="VBoxContainer/game_list_btn" to="." method="_on_startgame_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/game_list_btn" to="." method="_on_game_list_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/game_list_btn" to="." method="_on_startgame_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit_btn" to="." method="_on_quit_btn_pressed"]
